@@ -6,19 +6,15 @@ const cors = require("cors");
 
 dotenv.config();
 
-const {
-  DB_USER,
-  DB_PASSWORD,
-  DB_HOST,
-  DB_PORT,
-  DB_NAME,
-} = process.env;
-
-const MONGO_URI = `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}?authSource=admin`
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME } = process.env;
 
 // Connect DB
 mongoose
-  .connect(MONGO_URI,{ useNewUrlParser: true, useUnifiedTopology: true })
+  .connect("mongodb://host.docker.internal:27017/mydata", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    family: 4,
+  })
   .then(() => console.log("mongoDB is connected"))
   .catch((err) => console.log(err));
 
