@@ -12,7 +12,7 @@ RUN npm install
 
 # Copy other file to my current directory
 COPY . .
-
+# Build optimise static file
 # Build optimise static file
 RUN npm run build
 
