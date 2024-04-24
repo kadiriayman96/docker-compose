@@ -27,7 +27,7 @@ services:
       context: ./client
       dockerfile: Dockerfile
 
-    container_name:  
+    container_name:  frontend
     ports:
       - "80:80"
     depends_on:
